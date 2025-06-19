@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
+import {addDays,isWeekend} from "date-fns"
 const ReactDatePicker = () => {
     const [selectedDate,setSelectedDate]=useState(null)
 
@@ -8,8 +9,16 @@ const ReactDatePicker = () => {
         setSelectedDate(date)
     }
 
-const minDate=new Date("06-09-2025")
-const maxDate=new Date()
+// const minDate=new Date("06-09-2025") for restriction date from this date
+// const maxDate=new Date() to current date 
+
+const isWeekendDay=(date)=>{ // function to check if a date is a weekend
+    return isWeekend(date)
+}
+
+const filterWeekends=(date)=>{  //function to filter out weekends
+    return !isWeekendDay(date);
+}
 
   return (
   
@@ -19,8 +28,9 @@ const maxDate=new Date()
           selected={selectedDate}
           onChange={handleDateChange}
           dateFormat="MM/dd/yyyy"
-          minDate={minDate}
-          maxDate={maxDate}
+        //   minDate={minDate}
+        //   maxDate={maxDate}
+        filterDate={filterWeekends}
          />
     </div>
   )
