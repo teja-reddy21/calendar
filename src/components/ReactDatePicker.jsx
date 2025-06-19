@@ -7,6 +7,10 @@ const ReactDatePicker = () => {
  const   handleDateChange=(date)=>{
         setSelectedDate(date)
     }
+
+const minDate=new Date("06-09-2025")
+const maxDate=new Date()
+
   return (
   
     <div>
@@ -15,6 +19,8 @@ const ReactDatePicker = () => {
           selected={selectedDate}
           onChange={handleDateChange}
           dateFormat="MM/dd/yyyy"
+          minDate={minDate}
+          maxDate={maxDate}
          />
     </div>
   )
