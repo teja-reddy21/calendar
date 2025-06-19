@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
-import {addDays,isWeekend} from "date-fns"
+import {isWeekend} from "date-fns"
 const ReactDatePicker = () => {
     const [selectedDate,setSelectedDate]=useState(null)
 
@@ -27,10 +27,13 @@ const filterWeekends=(date)=>{  //function to filter out weekends
          <DatePicker 
           selected={selectedDate}
           onChange={handleDateChange}
-          dateFormat="MM/dd/yyyy"
+          dateFormat="MM/dd/yyyy, hh:mm"
         //   minDate={minDate}
         //   maxDate={maxDate}
         filterDate={filterWeekends}
+        showTimeSelect
+        timeIntervals={30}
+        timeFormat='hh:mm'
          />
     </div>
   )
