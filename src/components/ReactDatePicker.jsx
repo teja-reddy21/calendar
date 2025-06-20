@@ -19,21 +19,30 @@ const isWeekendDay=(date)=>{ // function to check if a date is a weekend
 const filterWeekends=(date)=>{  //function to filter out weekends
     return !isWeekendDay(date);
 }
+const importantDates=["06/15/2025","07/01/2025","08/07/2025"];
+
+const highlightImportantDates=(date)=>{
+  const formattedDate=date.toLocaleDateString("en-US");
+  return importantDates.includes(formattedDate); 
+}
 
   return (
   
     <div>
          <h1>Hello Date Picker</h1>
+         <p>Highlighted dates are holidays</p>
          <DatePicker 
+         inline //inline for removing input box in calendar and show the calendar 
           selected={selectedDate}
           onChange={handleDateChange}
           dateFormat="MM/dd/yyyy, hh:mm"
         //   minDate={minDate}
         //   maxDate={maxDate}
         filterDate={filterWeekends}
-        showTimeSelect
-        timeIntervals={30}
-        timeFormat='hh:mm'
+        // showTimeSelect
+        // timeIntervals={30}
+        // timeFormat='hh:mm'    for time slection
+        highlightDates={importantDates.map((dateString)=>new Date(dateString))}
          />
     </div>
   )
