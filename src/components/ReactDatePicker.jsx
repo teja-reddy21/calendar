@@ -41,8 +41,13 @@ const highlightImportantDates=(date)=>{
         filterDate={filterWeekends}
         // showTimeSelect
         // timeIntervals={30}
-        // timeFormat='hh:mm'    for time slection
+        // timeFormat='hh:mm'   // for time slection
         highlightDates={importantDates.map((dateString)=>new Date(dateString))}
+        showMonthDropdown
+        showYearDropdown
+        scrollableYearDropdown
+        scrollableMonthYearDropdown
+        yearDropdownItemNumber={50}
          />
     </div>
   )
