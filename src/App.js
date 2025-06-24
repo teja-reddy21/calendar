@@ -2,6 +2,8 @@
 import './App.css';
 import CurrentDate from './components/CurrentDate';
 import ReactDatePicker from './components/ReactDatePicker';
+import ReactDatePickerCustomRange from './components/ReactDatePickerCustomRange';
+
 import RestricDefineDates from './components/RestricDefineDates';
 
 function App() {
@@ -10,6 +12,7 @@ function App() {
       <ReactDatePicker/>
       <CurrentDate/>
       <RestricDefineDates/>
+      <ReactDatePickerCustomRange/>    
     </div>
   );
 }
